@@ -1,20 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TeacherController!{% endblock %}
+{% block title %}Instant Zen{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/stephanie/Bureau/myYoga/src/Controller/TeacherController.php'|file_link(0) }}">src/Controller/TeacherController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/stephanie/Bureau/myYoga/templates/teacher/index.html.twig'|file_link(0) }}">templates/teacher/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <h1 class="d-flex justify-content-center text-center mt-5">L'équipe Instant Zen</h1>
+    <div class="container-fluid d-flex justify-content-center mt-2 text-center">
+        {% for teacher in teachers %}
+            <div class="col-md-3 d-flex flex-column mt-5">
+                <div class="card text-center m-3 bg-white shadow">
+                    <div class="card-header p-3 bg-white p-4 shadow">
+                        <img class="img-fluid d-block mb-3 mx-auto" src="{{ teacher.url }}" width="400" height="200" alt="Card image cap">
+                        <h5 class="card-title">{{ teacher.name}}</h5>
+                    </div>
+                    <div class="card-body p-3 container-tertiary">
+                        <p class="card-text text-dark">Description : {{ teacher.description }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
 {% endblock %}
