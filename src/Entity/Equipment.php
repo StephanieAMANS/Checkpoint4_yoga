@@ -25,18 +25,13 @@ class Equipment
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToMany(targetEntity=Training::class, inversedBy="equipment")
      */
-    private $type;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="equipment")
-     */
-    private $users;
+    private $training;
 
     public function __construct()
     {
-        $this->users = new ArrayCollection();
+        $this->training = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -56,41 +51,26 @@ class Equipment
         return $this;
     }
 
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
     /**
-     * @return Collection|User[]
+     * @return Collection|Training[]
      */
-    public function getUsers(): Collection
+    public function getTraining(): Collection
     {
-        return $this->users;
+        return $this->training;
     }
 
-    public function addUser(User $user): self
+    public function addTraining(Training $training): self
     {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->addEquipment($this);
+        if (!$this->training->contains($training)) {
+            $this->training[] = $training;
         }
 
         return $this;
     }
 
-    public function removeUser(User $user): self
+    public function removeTraining(Training $training): self
     {
-        if ($this->users->removeElement($user)) {
-            $user->removeEquipment($this);
-        }
+        $this->training->removeElement($training);
 
         return $this;
     }

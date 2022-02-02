@@ -39,6 +39,16 @@ class Training
      */
     private $url;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Equipment::class, mappedBy="training")
+     */
+    private $equipment;
+
+    public function __construct()
+    {
+        $this->equipment = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -104,6 +114,33 @@ class Training
     public function setUrl(?string $url): self
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Equipment[]
+     */
+    public function getEquipment(): Collection
+    {
+        return $this->equipment;
+    }
+
+    public function addEquipment(Equipment $equipment): self
+    {
+        if (!$this->equipment->contains($equipment)) {
+            $this->equipment[] = $equipment;
+            $equipment->addTraining($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEquipment(Equipment $equipment): self
+    {
+        if ($this->equipment->removeElement($equipment)) {
+            $equipment->removeTraining($this);
+        }
 
         return $this;
     }

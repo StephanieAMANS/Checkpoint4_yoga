@@ -17,8 +17,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    public const ROLE_ADMIN = 'ROLE_ADMIN';
-
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -184,11 +182,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->sex = $sex;
 
         return $this;
-    }
-
-    public function isAdmin(): Boolean
-    {
-        return in_array(self::ROLE_ADMIN, $this->roles);
     }
 
     /**
