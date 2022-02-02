@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mt-4 mb-4 ms-5">
+            <li class="breadcrumb-item"><a href="{{ path('home') }}" style="color: black">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="#" style="color: black">Ton profil</a></li>
+        </ol>
+    </nav>
+<div class="container-fluid mb-3">
+    <div class="row register">
+        <div class="form-register col-11 col-sm-9 col-md-7 col-lg-10 mx-auto justify-content-center p-3">
+            <h1 class="display-2 text-center">Votre<span class="color-title"> profil</span></h1>
+            <div class="col-10 col-lg-5 mx-auto mt-5">
+                {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.name) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword) }}
+                {{ form_row(registrationForm.agreeTerms) }}
+            </div>
+            <div class="button-form d-flex justify-content-center">
+                <button type="submit" class="btn-color btn-lg w-25 p-2">Valider</button>
+            </div>
+                {{ form_end(registrationForm) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

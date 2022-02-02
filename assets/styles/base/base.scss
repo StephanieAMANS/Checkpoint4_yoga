@@ -4,7 +4,12 @@ body {
 h1, h2, h3 {
   font-family: 'Caveat', cursive;
 }
-
+.btn-color {
+  color : $button-color;
+}
+.color-title {
+  color: $color-title;
+}
 }
 
 footer {
