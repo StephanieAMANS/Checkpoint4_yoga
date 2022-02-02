@@ -35,15 +35,10 @@ class Training
     private $users;
 
     /**
-     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="training")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $pictures;
+    private $url;
 
-    public function __construct()
-    {
-        $this->users = new ArrayCollection();
-        $this->pictures = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -101,32 +96,14 @@ class Training
         return $this;
     }
 
-    /**
-     * @return Collection|Picture[]
-     */
-    public function getPictures(): Collection
+    public function getUrl(): ?string
     {
-        return $this->pictures;
+        return $this->url;
     }
 
-    public function addPicture(Picture $picture): self
+    public function setUrl(?string $url): self
     {
-        if (!$this->pictures->contains($picture)) {
-            $this->pictures[] = $picture;
-            $picture->setTraining($this);
-        }
-
-        return $this;
-    }
-
-    public function removePicture(Picture $picture): self
-    {
-        if ($this->pictures->removeElement($picture)) {
-            // set the owning side to null (unless already changed)
-            if ($picture->getTraining() === $this) {
-                $picture->setTraining(null);
-            }
-        }
+        $this->url = $url;
 
         return $this;
     }
