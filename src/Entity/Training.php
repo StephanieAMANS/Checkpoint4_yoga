@@ -49,6 +49,15 @@ class Training
         $this->equipment = new ArrayCollection();
     }
 
+    public function getTeacher()
+    {
+        foreach($this->getUsers() as $user) {
+            if (in_array('ROLE_TEACHER', $user->getRoles())){
+                $teacher = $user;
+            }
+        }
+        return $teacher??null;
+    }
 
     public function getId(): ?int
     {
