@@ -3,11 +3,17 @@
 {% block title %}Instant Zen{% endblock %}
 
 {% block body %}
-    <h1 class="d-flex justify-content-center text-center mt-3">L'équipe Instant Zen</h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mt-2 ms-5">
+            <li class="breadcrumb-item"><a href="{{ path('home') }}" style="color: black">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="#" style="color: black">L'équipe</a></li>
+        </ol>
+    </nav>
+    <h1 class="d-flex justify-content-center text-center mt-2">L'équipe Instant Zen</h1>
     <div class="container-fluid d-flex justify-content-center mt-2 text-center">
         {% for teacher in teachers %}
             <div class="col-md-3 d-flex flex-column mt-2">
-                <div class="card text-center m-3 bg-white shadow">
+                <div class="card text-center m-3 bg-white shadow h-100">
                     <div class="card-header p-3 bg-white p-4 shadow">
                         <img class="img-fluid d-block mb-3 mx-auto" src="{{ teacher.url }}" width="400" height="200" alt="Card image cap">
                         <h5 class="card-title">{{ teacher.name }}</h5>
