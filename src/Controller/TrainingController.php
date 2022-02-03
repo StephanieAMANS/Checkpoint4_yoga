@@ -26,11 +26,10 @@ class TrainingController extends AbstractController
     /**
      * @Route("/training/show/{id}", name="training_show")
      */
-    public function show(ManagerRegistry $managerRegistry, Training $training, TrainingRepository $trainingRepository): Response
+    public function show(Training $training): Response
     {
         return $this->render('training/show.html.twig', [
             'training' => $training,
         ]);
     }
-
 }

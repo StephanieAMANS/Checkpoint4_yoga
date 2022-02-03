@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use App\Entity\Training;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -55,7 +56,8 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user4 = new User();
         $user4->setName('Audrey');
         $this->addReference('audrey', $user4);
-        $user4->addTraining($this->getReference('cours1'));
+        $user4->addTraining($this->getReference('Fly Yoga'));
+        $user4->addTraining($this->getReference('Fly méditation'));
         $user4->setEmail('audrey.martin@teacher.fr');
         $user4->setUrl('https://static.wixstatic.com/media/a73a52_c8c1df3f431847dbb5cfab6fa3a05c97~mv2.jpg/v1/crop/x_0,y_180,w_720,h_720/fill/w_220,h_220,al_c,q_80,usm_0.66_1.00_0.01/Resized_StudioEquilibre_22_07_20_BD__ANA.webp');
         $user4->setDescription('Ancienne danseuse et passionnée de yoga, je me suis formée au yoga aérien et à la méditation');
@@ -70,10 +72,10 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user5 = new User();
         $user5->setName('Anaïs');
         $this->addReference('Anaïs', $user5);
-        $user5->addTraining($this->getReference('cours3'));
+        $user5->addTraining($this->getReference('Yoga Yin Yang'));
         $user5->setEmail('anais.hattier@teacher.fr');
         $user5->setUrl('https://www.yogabikrambordeaux.com/wp-content/uploads/2021/10/Bikram.Bx03.06.21.BD%E2%94%AC%C2%AEANAKA-112-e1634915538817.jpg');
-        $user5->setDescription('Je propose du Yoga Yin & Yang');
+        $user5->setDescription('Je vous propose du Yoga Yin Yang');
         $user5->setSex('féminin');
         $user5->setRoles(['ROLE_TEACHER']);
 
@@ -85,12 +87,10 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user6 = new User();
         $user6->setName('Stéphane');
         $this->addReference('Stéphane', $user6);
-        $user4->addTraining($this->getReference('cours4'));
         $user6->setEmail('stephane.lupin@teacher.fr');
         $user6->setUrl('https://media.aladom.fr/users/999821/m/0.jpg');
         $user6->setDescription('Passionné de massages depuis tout jeune, je vous propose un instant bien-être au sein de cette belle équipe');
         $user6->setSex('masculin');
-        $user6->setRoles(['ROLE_TEACHER']);
 
         $hashedPassword = $this->passwordHasher->hashPassword($user,
             'azertyuiop');

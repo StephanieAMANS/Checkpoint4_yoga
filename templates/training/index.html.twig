@@ -8,18 +8,21 @@
         <table class="table table-striped table-bordered border-dark ms-5 me-5">
             <thead>
             <tr>
-                <th class="col-2" scope="col">Cours</th>
-                <th class="col-3" scope="col">Description</th>
+                <th class="col-2 text-center" scope="col">Cours</th>
+                <th class="col-3 text-center" scope="col">Description</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 {% for training in trainings %}
-                <td>{{ training.name }} <a href="{{ path('training_show', { id:training.id }) }}">Voir détails</a></td>
-                <td>{{ training.description }}</td>
+                <td class="d-flex justify-content-between">{{ training.name }} <a href="{{ path('training_show', { id:training.id }) }}">Accéder au cours</a></td>
+                <td class="text-center">{{ training.description }}</td>
             </tr>
             {% endfor %}
             </tbody>
         </table>
+        <div class="d-flex justify-content-center">
+            <img src="{{ asset('build/images/buddha.jpg') }}" class="img-fluid" width="250" alt="buddha">
+        </div>
     </div>
 {% endblock %}

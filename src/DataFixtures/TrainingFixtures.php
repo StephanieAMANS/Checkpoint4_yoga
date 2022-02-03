@@ -13,7 +13,7 @@ class TrainingFixtures extends Fixture implements DependentFixtureInterface
     {
         $training = new Training();
         $training->setName('Fly Yoga');
-        $this->addReference('cours1', $training);
+        $this->addReference('Fly Yoga', $training);
         $training->setDescription('Yoga entre Ciel et Terre - postions de yoga dans un hamac et 
         étirements sur tapis');
         $training->addEquipment($this->getReference('hamac'));
@@ -22,7 +22,7 @@ class TrainingFixtures extends Fixture implements DependentFixtureInterface
 
         $training2 = new Training();
         $training2->setName('Fly méditation');
-        $this->addReference('cours2', $training);
+        $this->addReference('Fly méditation', $training);
         $training2->setDescription('Yoga entre Ciel et Terre - méditation dans un hamac et 
         réveil sur tapis');
         $training2->addEquipment($this->getReference('hamac'));
@@ -31,19 +31,12 @@ class TrainingFixtures extends Fixture implements DependentFixtureInterface
 
         $training3 = new Training();
         $training3->setName('Yoga Yin Yang');
-        $this->addReference('cours3', $training);
+        $this->addReference('Yoga Yin Yang', $training);
         $training3->setDescription('Yoga sur tapis - étirements et respiration');
         $training3->addEquipment($this->getReference('tapis'));
-        $training3->setUrl('https://www.casayoga.tv/images/images-videos/564-casayogatv-cours-en-ligne-yin-yoga-4-5-posture-du-chat-demi-selle-torsion-surelevee-delphine-martin-michaud-yin-yoga-6387.jpg');
+        $training3->setUrl('https://xsn1w2yn92v2spmxk15sk3p2-wpengine.netdna-ssl.com/wp-content/uploads/2020/10/yin-yang-min.jpg');
         $manager->persist($training3);
 
-        $training4 = new Training();
-        $training4->setName('Massage bien-être');
-        $this->addReference('cours4', $training);
-        $training4->setDescription('Massage au choix - selon votre envie et votre humeur du moment');
-        $training4->addEquipment($this->getReference('table de massage'));
-        $training3->setUrl('https://www.experiencecotedazur.com/wp-content/uploads/wpetourisme/big-ticket-image-60787716c57b4845225298-cropped600-400.jpeg');
-        $manager->persist($training4);
 
         $manager->flush();
     }
