@@ -6,7 +6,12 @@
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
-
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mt-2 ms-5">
+            <li class="breadcrumb-item"><a href="{{ path('home') }}" style="color: black">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="#" style="color: black">Inscription</a></li>
+        </ol>
+    </nav>
     <div class="row d-flex">
         <h1 class="fs-1 text-center color-title mt-5">Identification</h1>
         <form action="{{ path('login') }}" method="post">

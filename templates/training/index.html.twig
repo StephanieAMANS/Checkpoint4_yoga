@@ -3,9 +3,15 @@
 {% block title %}Instant Zen{% endblock %}
 
 {% block body %}
-    <h1 class="d-flex justify-content-center text-center mt-5">Cours à Instant Zen</h1>
-    <div class="container-fluid d-flex justify-content-center text-center mt-5">
-        <table class="table table-striped table-bordered border-dark ms-5 me-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mt-2 ms-5">
+            <li class="breadcrumb-item"><a href="{{ path('home') }}" style="color: black">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('training') }}" style="color: black">Cours</a></li>
+        </ol>
+    </nav>
+    <h1 class="d-flex justify-content-center text-center mt-2 color-title">Cours à Instant Zen</h1>
+    <div class="container-fluid d-flex flex-column align-items-center text-center mt-3">
+        <table class="table table-striped table-bordered border-dark w-75 ms-5 me-5">
             <thead>
             <tr>
                 <th class="col-2 text-center" scope="col">Cours</th>
@@ -21,8 +27,8 @@
             {% endfor %}
             </tbody>
         </table>
-        <div class="d-flex justify-content-center">
-            <img src="{{ asset('build/images/buddha.jpg') }}" class="img-fluid" width="250" alt="buddha">
+        <div class="">
+            <img src="{{ asset('build/images/buddha.jpg') }}" class="img-fluid img-buddha" width="250" alt="buddha">
         </div>
     </div>
 {% endblock %}
