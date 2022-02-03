@@ -9,13 +9,13 @@
             <li class="breadcrumb-item"><a href="{{ path('training') }}" style="color: black">Cours</a></li>
         </ol>
     </nav>
-    <h1 class="d-flex justify-content-center text-center mt-3">{{ training.name }}</h1>
+    <h1 class="d-flex justify-content-center text-center mt-3 color-title">{{ training.name }}</h1>
     <div class="container-fluid">
         <div class="row">
-            <p class="d-flex justify-content-center">{{ training.description }}</p>
-            <p class="d-flex justify-content-center">
+            <p class="d-flex justify-content-center mt-3">Description : {{ training.description }}</p>
+            <p class="d-flex justify-content-center mt-3">
                 {% for equipment in training.equipment %}
-                    {{ equipment.name }}
+                   Equipement :  {{ equipment.name }}
                 {% endfor %}</p>
         </div>
         <div class="row d-flex justify-content-center mb-5">
