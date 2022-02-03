@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LoginController!{% endblock %}
+
+{% block body %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <div class="row d-flex">
+        <h1 class="fs-1 text-center color-title mt-5">Identification</h1>
+        <form action="{{ path('login') }}" method="post">
+            <div class="required-file">
+                <div class="row">
+                    <div class="col-12 mb-5">
+                        <h3 class="text-center mt-4 fs-6">* champs obligatoire</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <input class="case" type="text" placeholder="Email*" id="username" name="_username" value="{{ last_username }}"/>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <input class="case" type="password" placeholder="Password*" id="password" name="_password"/>
+            </div>
+            {# If you want to control the URL the user is redirected to on success
+            <input type="hidden" name="_target_path" value="/account"/> #}
+            <div class="button-form d-flex justify-content-center mt-3">
+                <button type="submit" class="btn btn-color btn-lg w-25 p-2">Se connecter</button>
+            </div>
+        </form>
+    </div>
+    <p class="text-center"><a href="{{ path('app_register') }}">Créer un compte</a></p>
+{% endblock %}
