@@ -26,18 +26,18 @@ class EquipmentFixtures extends Fixture
         $manager->persist($equipment3);
 
         $equipment4 = new Equipment();
-        $equipment4->setName('ballon');
-        $this->addReference('ballon', $equipment4);
+        $equipment4->setName('baton');
+        $this->addReference('baton', $equipment4);
         $manager->persist($equipment4);
 
         $equipment5 = new Equipment();
-        $equipment5->setName('baton');
-        $this->addReference('baton', $equipment5);
+        $equipment5->setName('bougies');
+        $this->addReference('bougies', $equipment5);
         $manager->persist($equipment5);
 
         $equipment6 = new Equipment();
-        $equipment6->setName('table de massage');
-        $this->addReference('table de massage', $equipment6);
+        $equipment6->setName('bol tibétain');
+        $this->addReference('bol tibétain', $equipment6);
         $manager->persist($equipment6);
 
         $manager->flush();
