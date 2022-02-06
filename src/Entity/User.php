@@ -46,11 +46,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $sex;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Training::class, inversedBy="users")
      */
     private $training;
@@ -178,18 +173,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getSex(): ?string
-    {
-        return $this->sex;
-    }
-
-    public function setSex(?string $sex): self
-    {
-        $this->sex = $sex;
 
         return $this;
     }
