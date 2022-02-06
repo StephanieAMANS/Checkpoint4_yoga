@@ -29,6 +29,11 @@ class Equipment
      */
     private $training;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $url;
+
     public function __construct()
     {
         $this->training = new ArrayCollection();
@@ -71,6 +76,18 @@ class Equipment
     public function removeTraining(Training $training): self
     {
         $this->training->removeElement($training);
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(?string $url): self
+    {
+        $this->url = $url;
 
         return $this;
     }

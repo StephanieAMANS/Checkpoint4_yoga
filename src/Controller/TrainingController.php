@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Training;
+use App\Form\TrainingPurposeType;
 use App\Repository\TrainingRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -23,12 +25,13 @@ class TrainingController extends AbstractController
         ]);
     }
 
+
     /**
-     * @Route("/training/show/{id}", name="training_show")
+     * @Route("/training/detail/{id}", name="training_detail")
      */
-    public function show(Training $training): Response
+    public function detail(Training $training): Response
     {
-        return $this->render('training/show.html.twig', [
+        return $this->render('training/detail.html.twig', [
             'training' => $training,
         ]);
     }
