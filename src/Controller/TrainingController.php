@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Training;
+use App\Form\TrainingPurposeType;
 use App\Repository\TrainingRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -22,6 +24,7 @@ class TrainingController extends AbstractController
             'trainings' => $trainings,
         ]);
     }
+
 
     /**
      * @Route("/training/detail/{id}", name="training_detail")
