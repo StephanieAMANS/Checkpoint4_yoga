@@ -21,7 +21,7 @@
             <tbody>
             <tr>
                 {% for training in trainings %}
-                <td class="d-flex justify-content-between">{{ training.name }} <a href="{{ path('training_show', { id:training.id }) }}">Accéder au cours</a></td>
+                <td class="d-flex justify-content-between">{{ training.name }} <a href="{{ path('training_detail', { id:training.id }) }}">Accéder au cours</a></td>
                 <td class="text-center">{{ training.description }}</td>
             </tr>
             {% endfor %}

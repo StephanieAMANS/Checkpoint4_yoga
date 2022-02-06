@@ -35,8 +35,7 @@ class TrainingPurposeType extends AbstractType
                 'class' => Equipment::class,
                 'choice_label' => 'name',
                 'label' => 'Choix de l\'équipement'
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
