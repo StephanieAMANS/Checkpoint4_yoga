@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Training;
+use App\Form\TrainingPurposeType;
 use App\Repository\TrainingRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
