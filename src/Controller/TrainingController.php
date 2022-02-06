@@ -24,6 +24,26 @@ class TrainingController extends AbstractController
             'trainings' => $trainings,
         ]);
     }
+    /**
+     * @Route("/training/add", name="training_add")
+     */
+    public function create(Request $request, ManagerRegistry $managerRegistry): Response
+    {
+        $training = new Training;
+        $form = $this->createForm(TrainingPurposeType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $managerRegistry->getManager();
+            $entityManager->persist($training);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Le nouveau cours a bien été enregistré');
+            return $this->redirectToRoute('home');
+        }
+        return $this->renderForm('training/add.html.twig', [
+            'trainingForm' => $form
+        ]);
+    }
 
 
     /**

@@ -15,7 +15,6 @@ class EquipmentFixtures extends Fixture
         $this->addReference('hamac', $equipment);
         $manager->persist($equipment);
 
-
         $equipment2 = new Equipment();
         $equipment2->setName('tapis');
         $this->addReference('tapis', $equipment2);
