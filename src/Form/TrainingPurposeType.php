@@ -20,10 +20,10 @@ class TrainingPurposeType extends AbstractType
             ->add('name',TextType::class, [
                 'label' => 'Nom du cours'
             ])
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'label' => 'Description'
             ])
-            ->add('url', TextareaType::class, [
+            ->add('url', TextType::class, [
                 'label' => 'Image représentant le cours décrit'
             ])
             ->add('users', EntityType::class, [

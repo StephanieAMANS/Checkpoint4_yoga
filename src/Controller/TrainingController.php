@@ -40,7 +40,9 @@ class TrainingController extends AbstractController
             $this->addFlash('success', 'Le nouveau cours a bien été enregistré');
             return $this->redirectToRoute('home');
         }
-        return $this->renderForm('training/add.html.twig');
+        return $this->renderForm('training/add.html.twig', [
+            'trainingForm' => $form
+        ]);
     }
 
     /**
