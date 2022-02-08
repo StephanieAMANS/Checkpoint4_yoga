@@ -30,7 +30,7 @@ class TrainingController extends AbstractController
     public function create(Request $request, ManagerRegistry $managerRegistry): Response
     {
         $training = new Training;
-        $form = $this->createForm(TrainingPurposeType::class);
+        $form = $this->createForm(TrainingPurposeType::class, $training);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $managerRegistry->getManager();
