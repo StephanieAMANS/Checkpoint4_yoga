@@ -47,6 +47,7 @@ class Training
     public function __construct()
     {
         $this->equipment = new ArrayCollection();
+        $this->users =new ArrayCollection();
     }
 
     public function getTeacher()

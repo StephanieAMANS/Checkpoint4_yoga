@@ -25,17 +25,22 @@ class TrainingPurposeType extends AbstractType
                 'label'    => 'Description'
             ])
             ->add('url', TextType::class, [
-                'label' => 'Image illustrant le cours décrit'
+                'label'    => 'Image illustrant le cours décrit',
+                'required' => false
             ])
             ->add('users', EntityType::class, [
                 'class'        => User::class,
                 'choice_label' => 'name',
-                'label'        => 'Nom du prof'
+                'expanded'     => false,
+                'multiple'     => true
             ])
             ->add('equipment', EntityType::class, [
                 'class'        => Equipment::class,
                 'choice_label' => 'name',
-                'label'        => 'Choix de l\'équipement'
+                'label'        => 'Choix de l\'équipement',
+                'expanded'     => true,
+                'multiple'     => true
+
             ]);
     }
 

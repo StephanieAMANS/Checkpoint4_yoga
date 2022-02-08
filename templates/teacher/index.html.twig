@@ -25,4 +25,9 @@
             </div>
         {% endfor %}
     </div>
+    <div class="row mt-3 mb-5">
+        {% if (app.user) %}
+        <a href="{{ path('training_add') }}" class="text-center btn btn-color"> Ajouter un cours</a>
+        {% endif %}
+    </div>
 {% endblock %}
